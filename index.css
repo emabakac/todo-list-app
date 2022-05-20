@@ -1,0 +1,228 @@
+:root {
+  --clr-primary: #fc0345;
+  --clr-light: #f4f4f4;
+  --clr-dark: #333;
+  --clr-warning: rgb(99, 36, 36);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: inherit;
+}
+
+body {
+  font-family: "Work Sans", sans-serif;
+  font-weight: 300;
+  font-size: 1.5rem;
+  background-color: var(--clr-primary);
+  color: var(--clr-light);
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  min-height: 100vh;
+}
+
+.delete-button {
+  width: 5em;
+  height: 3em;
+  border: 0;
+  color: inherit;
+  background-color: inherit;
+  cursor: pointer;
+}
+
+.lists-container {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  padding-left: 3em;
+}
+
+.task-list {
+  line-height: 1.7em;
+  padding-left: 1em;
+  margin: 1.5em 0;
+}
+
+.list-name {
+  cursor: pointer;
+}
+
+.list-name:hover {
+  opacity: 0.7;
+}
+
+form {
+  display: flex;
+}
+
+.button {
+  cursor: pointer;
+  background: 0;
+  border: 0;
+  padding: 0;
+  color: inherit;
+}
+
+.button.create {
+  font-size: 1.5rem;
+  font-weight: 900;
+  margin-right: 0.25em;
+}
+
+.button.create:hover {
+  opacity: 0.7;
+}
+
+.new {
+  background: transparent;
+  border: 0;
+  color: inherit;
+  border-bottom: 1px solid currentColor;
+  font-size: inherit;
+  outline: none;
+  padding: 0.25em;
+}
+
+.new:focus {
+  border-bottom-width: 3px;
+}
+
+.new::placeholder {
+  color: inherit;
+}
+
+.new.list {
+  font-size: 1rem;
+}
+
+.new.task {
+  margin-bottom: 0;
+}
+
+.active-list {
+  font-weight: 700;
+}
+
+.todo-list {
+  width: 50%;
+  margin-right: 3em;
+  background: var(--clr-light);
+  color: var(--clr-dark);
+}
+
+.todo-header {
+  background: #e4e4e4;
+  height: 4em;
+  padding: 0 1em;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.list-title {
+  margin: 0 1em 0 0;
+}
+
+.task-count {
+  margin: 0;
+  font-size: 1rem;
+}
+
+.todo-body {
+  padding: 2em 1em;
+}
+
+.new-task-creator .create {
+  color: var(--clr-primary);
+}
+
+[type="checkbox"] {
+  opacity: 0;
+  position: absolute;
+}
+
+.task label {
+  display: flex-inline;
+  align-items: center;
+  position: relative;
+}
+
+.task {
+  position: relative;
+  margin-bottom: 1.25em;
+}
+
+.task::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  left: 0;
+  bottom: -0.5em;
+  height: 1px;
+  background: currentColor;
+  opacity: 0.1;
+}
+
+.custom-checkbox {
+  --size: 0.75em;
+  display: inline-block;
+  width: var(--size);
+  height: var(--size);
+  margin-right: var(--size);
+  cursor: pointer;
+  border: 2px solid currentColor;
+  border-radius: 50%;
+  -webkit-transform: scale(1);
+  transform: scale(1);
+  transition: -webkit-transform 300ms ease-in-out;
+  transition: transform 300ms ease-in-out;
+  transition: transform 300ms ease-in-out, -webkit-transform 300ms ease-in-out;
+}
+
+.task:hover .custom-checkbox,
+[type="checkbox"]:focus + label .custom-checkbox {
+  -webkit-transform: scale(1.2);
+  transform: scale(1.2);
+  color: var(--clr-primary);
+}
+
+[type="checkbox"]:checked + label .custom-checkbox {
+  background: var(--clr-primary);
+  border-color: var(--clr-primary);
+  box-shadow: inset 0 0 0px 2px white;
+}
+
+[type="checkbox"]:checked + label {
+  opacity: 0.5;
+}
+
+.task label::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  left: 1.5em;
+  top: 50%;
+  height: 3px;
+  background: currentColor;
+  -webkit-transform: scaleX(0);
+  transform: scaleX(0);
+  -webkit-transform-origin: right;
+  transform-origin: right;
+  transition: -webkit-transform 150ms ease-in-out;
+  transition: transform 150ms ease-in-out;
+  transition: transform 150ms ease-in-out, -webkit-transform 150ms ease-in-out;
+}
+
+[type="checkbox"]:checked + label::after {
+  -webkit-transform: scaleX(1);
+  transform: scaleX(1);
+  -webkit-transform-origin: left;
+  transform-origin: left;
+}
